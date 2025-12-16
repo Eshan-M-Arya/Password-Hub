@@ -18,6 +18,14 @@ frame_main.configure(bg=bg_colour)
 frame_main.pack()
 
 
+def confirm_exit():
+    """Confirming user exit"""
+
+    global root_main
+    if messagebox.askyesno("Quit", "Are you sure you want to quit?"):
+        root_main.destroy()
+
+
 def password_strength_checker():
     def submit():
         """ Function to handle the tasks that happen after the submit button is clicked """
@@ -220,7 +228,7 @@ button_2 = tk.Button(frame_main, text='Password Encrypter and Decrypter', font=(
                      command=password_encrypter_decrypter, padx=5, pady=10, fg=bg_colour, bg='#33B828',relief="raised",bd="10")
 button_2.pack(pady=2)
 
-button_3 = tk.Button(frame_main, text='Exit', font=("Arial", 11), command=root_main.quit, padx=5, pady=10, fg=bg_colour,
+button_3 = tk.Button(frame_main, text='Exit', font=("Arial", 11), command=confirm_exit, padx=5, pady=10, fg=bg_colour,
                      bg='#33B828',relief="raised",bd="10")
 button_3.pack(pady=2)
 
